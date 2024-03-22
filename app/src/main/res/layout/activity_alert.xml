@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".AlertActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Выберите функцию"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/btnSin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sin" />
+
+    <Button
+        android:id="@+id/btnCos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cos" />
+
+    <Button
+        android:id="@+id/btnTan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tan" />
+
+    <Button
+        android:id="@+id/btnaSin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/asin" />
+
+    <Button
+        android:id="@+id/btnaCos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/acos" />
+</LinearLayout>
