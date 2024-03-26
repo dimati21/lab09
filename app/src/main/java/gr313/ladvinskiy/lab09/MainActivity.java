@@ -9,6 +9,7 @@ import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioGroup;
 
 import math.interp;
 
@@ -34,53 +35,87 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void on_createDialog_click(View v){
-        Dialog dialog = new Dialog(MainActivity.this);
+        final Dialog dialog = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.activity_alert);
-        Button but_sin = (Button) dialog.findViewById(R.id.btnSin);
-        but_sin.setOnClickListener(new View.OnClickListener() {
+        RadioGroup rgr = (RadioGroup) dialog.findViewById(R.id.radgroup);
+
+        rgr.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                func = "sin";
-                drawgraph();
-                dialog.dismiss();
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == 0){
+                    func = "cos";
+                    drawgraph();
+                    dialog.dismiss();
+                }
+                if (checkedId == 1){
+                    func = "sin";
+                    drawgraph();
+                    dialog.dismiss();
+                }
+                if (checkedId == 2){
+                    func = "tan";
+                    drawgraph();
+                    dialog.dismiss();
+                }
+                if (checkedId == 3){
+                    func = "acos";
+                    drawgraph();
+                    dialog.dismiss();
+                }
+
+                if (checkedId == 4){
+                    func = "asin";
+                    drawgraph();
+                    dialog.dismiss();
+                }
+
             }
         });
-        Button but_cos = (Button) dialog.findViewById(R.id.btnCos);
-        but_cos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                func = "cos";
-                drawgraph();
-                dialog.dismiss();
-            }
-        });
-        Button but_tan = (Button) dialog.findViewById(R.id.btnTan);
-        but_tan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                func = "tan";
-                drawgraph();
-                dialog.dismiss();
-            }
-        });
-        Button but_acos = (Button) dialog.findViewById(R.id.btnaCos);
-        but_acos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                func = "acos";
-                drawgraph();
-                dialog.dismiss();
-            }
-        });
-        Button but_asin = (Button) dialog.findViewById(R.id.btnaSin);
-        but_asin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                func = "asin";
-                drawgraph();
-                dialog.dismiss();
-            }
-        });
+//        Button but_sin = (Button) dialog.findViewById(R.id.radsin);
+//        but_sin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                func = "sin";
+//                drawgraph();
+//                dialog.dismiss();
+//            }
+//        });
+//        Button but_cos = (Button) dialog.findViewById(R.id.radcos);
+//        but_cos.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                func = "cos";
+//                drawgraph();
+//                dialog.dismiss();
+//            }
+//        });
+//        Button but_tan = (Button) dialog.findViewById(R.id.radtan);
+//        but_tan.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                func = "tan";
+//                drawgraph();
+//                dialog.dismiss();
+//            }
+//        });
+//        Button but_acos = (Button) dialog.findViewById(R.id.radacos);
+//        but_acos.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                func = "acos";
+//                drawgraph();
+//                dialog.dismiss();
+//            }
+//        });
+//        Button but_asin = (Button) dialog.findViewById(R.id.radasin);
+//        but_asin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                func = "asin";
+//                drawgraph();
+//                dialog.dismiss();
+//            }
+//        });
         dialog.show();
     }
     protected void drawgraph(){

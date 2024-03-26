@@ -15,33 +15,40 @@
         android:text="Выберите функцию"
         android:textAlignment="center" />
 
-    <Button
-        android:id="@+id/btnSin"
+    <RadioGroup
+        android:id="@+id/radgroup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/sin" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnCos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/cos" />
+        <RadioButton
+            android:id="@+id/radcos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cos" />
 
-    <Button
-        android:id="@+id/btnTan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tan" />
+        <RadioButton
+            android:id="@+id/radsin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sin" />
 
-    <Button
-        android:id="@+id/btnaSin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/asin" />
+        <RadioButton
+            android:id="@+id/radtan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tan" />
 
-    <Button
-        android:id="@+id/btnaCos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/acos" />
+        <RadioButton
+            android:id="@+id/radacos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/acos" />
+
+        <RadioButton
+            android:id="@+id/radasin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/asin" />
+    </RadioGroup>
+
 </LinearLayout>
