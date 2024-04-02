@@ -5,13 +5,18 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.SurfaceView;
+import android.widget.Toast;
 
 import math.arr;
 import math.interp;
 
 public class MySurface extends SurfaceView{
     Paint p;
+    float tx, ty;
+    boolean tt;
+    float ax0, ax1, ay0, ay1;
     float xmin;
     float xmax;
     float ymin;
@@ -19,11 +24,15 @@ public class MySurface extends SurfaceView{
     float[] x;
     float[] y;
     int n;
+    float XMIN;
+    float XMAX ;
     public void update(){
         xmin = arr.min(x, n);
         xmax = arr.max(x, n);
         ymin = arr.min(y, n);
         ymax = arr.max(y, n);
+        XMIN = xmin;
+        XMAX = xmax;
     }
 
     public MySurface(Context context, AttributeSet attrs) {
@@ -47,6 +56,56 @@ public class MySurface extends SurfaceView{
             if (i > 0) canvas.drawLine(x0, y0, x1, y1, p);
             x0 = x1;
             y0 = y1;
+        }
+    }
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        int act = event.getAction();
+        float x = event.getX();
+        float y = event.getY();
+        switch (act)
+        {
+            case MotionEvent.ACTION_DOWN:
+                tx = x;
+                ty = y;
+                tt = true;
+                return true;
+            case MotionEvent.ACTION_UP:
+                tt=false;
+                return true;
+            case MotionEvent.ACTION_MOVE:
+            {
+                float dx = x - tx;
+                float dy = y - ty;
+                dx *= -0.01f;
+                dy *= (ay1 - ay0) / getWidth();
+                ax0 += dx;
+                ax1 += dx;
+                ay0 += dy;
+                ay1 += dy;
+                tx = x;
+                ty = y;
+                invalidate();
+                return true;
+            }
+        }
+        return false;
+    }
+    public void zoom_plus(float numb) {
+        if (xmin + numb < xmax - numb) {
+            xmax -= numb;
+            xmin += numb;
+        }
+    }
+
+    public void zoom_minus(float numb) {
+        if (xmin - numb > XMIN && xmax + numb < XMAX) {
+            xmax += numb;
+            xmin -= numb;
+        }
+        else {
+            xmax = XMAX;
+            xmin = XMIN;
         }
     }
 }

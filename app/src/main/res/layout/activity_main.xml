@@ -14,6 +14,35 @@
         android:onClick="on_createDialog_click"
         android:text="@string/dialogCr" />
 
+    <Button
+        android:id="@+id/btnPoints"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="on_btnPoints_click"
+        android:text="@string/but_points" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/but_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="btnMinus"
+            android:text="-" />
+
+        <Button
+            android:id="@+id/but_plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="btnPlus"
+            android:text="+" />
+    </LinearLayout>
+
     <gr313.ladvinskiy.lab09.MySurface
         android:id="@+id/mySurface"
         android:layout_width="match_parent"
