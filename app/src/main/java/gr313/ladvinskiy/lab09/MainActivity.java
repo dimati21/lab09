@@ -31,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
         xMin = intent.getFloatExtra("xMin", 0.0f);
         xMax = intent.getFloatExtra("xMax", 0.0f);
+        if (intent.getIntExtra("points", 0) < 1) {
+            Toast.makeText(this, "Введите минимум одну точку", Toast.LENGTH_SHORT).show();
+            return;
+        }
         s.n = intent.getIntExtra("points", 0);
         s.x = new float[s.n];
         s.y = new float[s.n];
